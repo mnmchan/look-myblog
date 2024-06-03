@@ -3,3 +3,21 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+
+ :root {
+  --red: #F02A48;
+  --black: #373737;
+  }
+
+  html {
+    background-image: url('/images/common/bg.png');
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    color: var(--black);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+

@@ -1,9 +1,19 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+
+let d = new Date();
+let year = d.getFullYear();
+let month = d.getMonth() + 1;
+let day = d.getDate();
+let dayofweek = d.getDay();
+
+const dayname = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+
 ---
 
 <header class="header">
+	<p>{year}/{month}/{day}（{dayname[dayofweek]}）</p>
 	<div class="header__inner">
 		<div class="heading__wrapper">
 			<a href="/" class="heading__link">
@@ -22,10 +32,10 @@ import { SITE_TITLE } from '../consts';
 <style lang="scss">
 	.header {
 		margin-top: 40px;
-		border-top: 2px solid var(--black);
-		border-bottom: 2px solid var(--black);
-
+		
 		&__inner {
+			border-top: 2px solid var(--black);
+			border-bottom: 2px solid var(--black);
 			display: flex;
 			justify-content: space-between;
 		}

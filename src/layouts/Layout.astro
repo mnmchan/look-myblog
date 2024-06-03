@@ -11,10 +11,9 @@ import "the-new-css-reset";
 
 // font
 import '@fontsource/poppins';
-import '@fontsource-variable/noto-sans-jp';
 
 //microCMS呼び出し
-import { getBlogs } from "../library/microcms";
+import { getBlogs } from "../library/microcms";s
 const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedAt"] });
 
 ---
@@ -45,13 +44,12 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
     background-image: url('/images/common/bg.png');
   }
   body {
-    max-width: 1400px;
-    margin-inline: auto;
-    font-family: 'Poppins', 'Noto Sans JP Variable', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: left;
     color: var(--black);
     line-height: 1.6;
     font-size: 1rem;
+
   }
 
 
