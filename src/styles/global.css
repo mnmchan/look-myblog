@@ -11,6 +11,7 @@
 
   html {
     background-image: url('/images/common/bg.png');
+    background-attachment: fixed;
   }
   
   body {
