@@ -52,18 +52,27 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		body {
 			max-width: 1400px;
 			margin-inline: auto;
+			@media (max-width: 768px) {
+				margin-inline: 20px;
+			}
 		}
 
 		.article {
 			padding-block: 80px;
 			max-width: 1000px;
 			margin-inline: auto;
+			@media (max-width: 768px) {
+				padding-block: 20px;
+			}
 		}
 
 		.hero {
 			margin-bottom: 80px;
 			width: 100%;
 			height: auto;
+			@media (max-width: 768px) {
+				margin-bottom: 20px;
+			}
 		}
 
 </style>

@@ -5,12 +5,17 @@ const today = new Date();
 <footer>
 	<small>&copy; 2024 LOOK Web design notes All rights reserved.</small>
 </footer>
-<style>
+<style lang="scss">
 	footer {
 		padding-block: 40px;
 		width: 100%;
 		text-align: center;
 		border-top: 2px solid var(--black);
+		font-size: 13px;
+		@media (max-width: 768px) {
+			padding-block: 10px;
+			
+		}
 	}
 
 </style>

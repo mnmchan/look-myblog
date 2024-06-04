@@ -21,3 +21,18 @@
     font-size: 1rem;
   }
 
+  .br--pc {
+    display: block;
+  }
+  .br--sp {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .br--pc {
+      display: none;
+    }
+    .br--sp {
+      display: block;
+    }
+  }
