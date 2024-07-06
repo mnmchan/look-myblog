@@ -18,7 +18,7 @@
     content: "";
     width: 100%;
     height: 100vh;
-    background-image: url('/images/common/bg.png');
+    /* background-image: url('/images/common/bg.png'); */
     position: fixed;
     top: 0;
     left: 0;
@@ -47,7 +47,7 @@
 
   @media (max-width: 768px) {
     html::before {
-      background-image: url('/images/common/bg_sp.png');
+      /* background-image: url('/images/common/bg_sp.png'); */
     }
     .br--pc {
       display: none;
