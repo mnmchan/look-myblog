@@ -29,6 +29,7 @@ const dayname = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
 
 <style lang="scss">
 	.header {
+		padding-inline: 20px;
 		flex: 1;
 
 		&__inner {
@@ -62,25 +63,15 @@ const dayname = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
 		}
 
 		&__logo {
-			width: 280px;
+			width: clamp(13.75rem, 12.602rem + 4.9vw, 17.5rem);
 			height: auto;
 			text-align: center;
-			@media (max-width: 768px) {
-				width: 220px;
-
-			}
-			
-			
 		}
 		
 		&__image {
-			width: 100px;
+			width: clamp(5rem, 4.617rem + 1.63vw, 6.25rem);
 			height: auto;
 			text-align: center;
-			@media (max-width: 768px) {
-				width: 80px;
-
-			}
 		}
 	}
 

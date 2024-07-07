@@ -32,8 +32,9 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 											<img src={post.eyecatch?.url ?? ''} alt=""/>
 										</div>
 										<div class="title__wrapper">
-											<time datetime={post.publishedAt}>
-												{new Date(post.publishedAt).toLocaleDateString('ja-JP')}
+											<time datetime={post.publishedAt} class="time">
+												<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#747474"><path d="M232-132q-26 0-43-17t-17-43v-496q0-26 17-43t43-17h80v-92h32v92h276v-92h28v92h80q26 0 43 17t17 43v200h-28v-40H200v336q0 12 10 22t22 10h240v28H232Zm-32-424h560v-132q0-12-10-22t-22-10H232q-12 0-22 10t-10 22v132Zm0 0v-164 164Zm372 424v-78l211-210q5-5 10-6.5t10-1.5q5 0 10.5 2t9.5 6l37 38q4 5 6 10t2 10q0 5-2 10t-6 10L650-132h-78Zm268-230-37-38 37 38ZM600-160h38l144-144-19-19-18-20-145 145v38Zm163-163-18-20 37 39-19-19Z"/></svg>
+												{new Date(post.publishedAt).toLocaleDateString('ja-JP', {year: 'numeric', month: 'short', day: 'numeric',})}
 											</time>
 											<p class="title">{post.title}</p>
 										</div>
@@ -91,11 +92,10 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 		&__inner {
 			padding-top: 116px;
 			padding-bottom: 100px;
-			padding-inline: 100px;
+			padding-inline: clamp(1.25rem, -3.365rem + 9.62vw, 6.25rem);
 			position: relative;
 			@media (max-width: 768px){
 				padding-top: 50px;
-				padding-inline: 20px;
 				padding-bottom: 50px;
 			}
 
@@ -118,6 +118,9 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 		&__item {
 			& + & {
 				margin-top: 80px;
+				@media (max-width: 768px) {
+					margin-top: 40px;
+				}
 			}
 		}
 	}
@@ -125,6 +128,21 @@ const { contents: posts } = await getBlogs({ fields: ["id", "title", "publishedA
 	.eyecatch {
 		border-radius: 20px 0 20px 0;
 		overflow: hidden;
+	}
+
+	.title {
+		&__wrapper {
+			margin-top: 16px;
+		}
+		font-size: 22px;
+		font-weight: 600;
+	}
+
+	.time {
+		display: flex;
+		color: #747474;
+		gap: 5px;
+		font-size: 15px;
 	}
 
 

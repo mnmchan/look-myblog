@@ -6,7 +6,7 @@
 
  :root {
   --red: #F02A48;
-  --black: #373737;
+  --black: #141414;
   }
 
   html {
@@ -26,11 +26,17 @@
   }
   
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Helvetica Neue",
+      Arial,
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      Meiryo,
+      sans-serif;
     text-align: left;
     color: var(--black);
     line-height: 1.6;
     font-size: 1rem;
+    letter-spacing: 0.04em;
   }
 
   img {
@@ -55,4 +61,19 @@
     .br--sp {
       display: block;
     }
+  }
+
+  .post-page h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .post-page p {
+    line-height: 2.2;
+  }
+
+  .post-page img {
+    margin-block: 30px;
   }

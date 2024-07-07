@@ -24,26 +24,34 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			<main class="main">
 				<div class="main__inner">
 					<article class="article">
-						<div class="hero-image">
-							{heroImage && <img class="hero" src={heroImage} alt="" />}
-						</div>
 						<div class="prose">
 							
 							<div class="title">
+								<h1 class="title__heading">{title}</h1>
 								<div class="date">
-									<FormattedDate date={pubDate} />
+									<div class="pub-date">
+										<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#747474"><path d="M232-132q-26 0-43-17t-17-43v-496q0-26 17-43t43-17h80v-92h32v92h276v-92h28v92h80q26 0 43 17t17 43v200h-28v-40H200v336q0 12 10 22t22 10h240v28H232Zm-32-424h560v-132q0-12-10-22t-22-10H232q-12 0-22 10t-10 22v132Zm0 0v-164 164Zm372 424v-78l211-210q5-5 10-6.5t10-1.5q5 0 10.5 2t9.5 6l37 38q4 5 6 10t2 10q0 5-2 10t-6 10L650-132h-78Zm268-230-37-38 37 38ZM600-160h38l144-144-19-19-18-20-145 145v38Zm163-163-18-20 37 39-19-19Z"/></svg>
+										<FormattedDate date={pubDate} />
+									</div>
 									{
 										updatedDate && (
 											<div class="last-updated-on">
-												Last updated on <FormattedDate date={updatedDate} />
+												<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#747474"><path d="M481-172q-64 0-120-24t-98-66q-42-42-66-98t-24-120q0-64 24-120t66-98q42-42 98-66t120-24q65 0 124 26.5T709-688v-96h28v144H593v-28h96q-42-43-95-67.5T481-760q-117 0-198.5 81.5T201-480q0 117 81.5 198.5T481-200q105 0 182.5-68.5T758-440h28q-14 116-101 192t-204 76Zm130-158L467-474v-206h28v194l136 136-20 20Z"/></svg>
+												<FormattedDate date={updatedDate} />
 											</div>
 										)
 									}
 								</div>
-								<h1>{title}</h1>
 								<hr />
 							</div>
-							<slot />
+
+							<div class="hero-image">
+								{heroImage && <img class="hero" src={heroImage} alt="" />}
+							</div>
+
+							<div class="post-page">
+								<slot />
+							</div>
 						</div>
 					</article>
 				</div>
@@ -89,12 +97,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			&__inner {
 				padding-top: 116px;
 				padding-bottom: 100px;
-				padding-inline: 100px;
+				padding-inline: clamp(1.25rem, -3.365rem + 9.62vw, 6.25rem);
 				min-height: 100%;
 				position: relative;
 				@media (max-width: 768px){
 					padding-top: 50px;
-					padding-inline: 20px;
 					padding-bottom: 50px;
 				}
 
@@ -113,4 +120,31 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 		}
 
+		.title {
+			font-size: 15px;
+			line-height: 1.4;
+			
+			&__heading {
+				font-size: 32px;
+				font-weight: 600;
+				margin-bottom: 10px;
+			}
+		}
+
+		.date {
+			margin-bottom: 32px;
+			display: flex;
+			gap: 20px;
+			color: #747474;
+		}
+
+		.post-page {
+			margin-top: 80px;
+		}
+
+		.pub-date, .last-updated-on {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
 </style>
