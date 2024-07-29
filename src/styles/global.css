@@ -63,10 +63,23 @@
     }
   }
 
+  h1, h2, h3 {
+    font-feature-settings: "palt";
+    letter-spacing: .08em;
+  }
+  
   .post-page h2 {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 60px;
+    padding-bottom: 16px;
+    margin-bottom: 40px;
     font-size: 26px;
+    font-weight: 600;
+    border-bottom: 1px solid #141414;
+  }
+
+  .post-page h3 {
+    margin-top: 40px;
+    font-size: 20px;
     font-weight: 600;
   }
 
@@ -76,4 +89,31 @@
 
   .post-page img {
     margin-block: 30px;
+  }
+
+  .post-page a {
+    text-decoration-line: underline;
+    color: #3e6ef8;
+  }
+
+  .post-page ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .post-page ul li {
+    padding-left: 20px;
+    position: relative;
+
+  }
+
+  .post-page ul li::before {
+    content: "●";
+    position: absolute;
+    top: 0;
+    left: 0;
   }

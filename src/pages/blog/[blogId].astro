@@ -2,6 +2,11 @@
 import Layout from "../../layouts/BlogPost.astro";
 import { getBlogs, getBlogDetail } from "../../library/microcms";
 
+// シンタックスハイライト
+import { load } from "cheerio";
+import hljs from "highlight.js";
+import "highlight.js/styles/vs2015.css";
+
 // 生成する記事のIDを全て取得
 export async function getStaticPaths() {
   const response = await getBlogs({ fields: ["id"] });
@@ -15,6 +20,15 @@ export async function getStaticPaths() {
 //記事の詳細情報を取得
 const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
+
+// cheerioでコードブロックを抜き出し、シンタックスハイライトを適用
+const $ = load(blog.content);
+$("pre code").each((_, elm) => {
+  const result = hljs.highlightAuto($(elm).text());
+  $(elm).html(result.value);
+  $(elm).addClass("hljs");
+});
+blog.content = $.html();
 ---
 
 <Layout
@@ -28,3 +42,19 @@ const blog = await getBlogDetail(blogId as string);
 
 <main set:html={blog.content} />
 </Layout>
+
+<style lang="scss">
+  ul {
+    li {
+      padding-left: 16px;
+      position: relative;
+
+      &::before {
+        content: "●";
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+</style>
